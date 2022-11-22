@@ -28,7 +28,11 @@ sudo dnf upgrade
 
 # Install my 'out of the box' progams
 echo "Installing out of the box apps..."
-sudo dnf install git neovim ranger zsh fzf inxi neofetch starship rofi vlc gh
+sudo dnf install git neovim ranger zsh neofetch rofi vlc gh
+
+# Install starship
+echo "Installing starship..."
+curl -sS https://starship.rs/install.sh | sh
 
 # Change shell to zsh
 # Requires relog to take effect, handled by restart at the end
