@@ -20,12 +20,13 @@ dnfconf="/etc/dnf/dnf.conf"
 for line in "${lines[@]}"; do
 	echo $line >> $dnfconf 
 done
-# Enable RPM Fusion
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Upgrade system
 echo "Upgrading system..."
 sudo dnf upgrade
+
+# Enable RPM Fusion
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install my 'out of the box' progams
 echo "Installing out of the box apps..."
