@@ -15,7 +15,7 @@ echo "Hostname set to $hostname"
 # DNF changes
 echo "Fixing dnf..."
 # Speed up changes
-lines=('fastestmirror=true' 'defaultyes=true' 'max_parallel_downloads=10')
+lines=('fastestmirror=true' 'defaultyes=true' 'max_parallel_downloads=15')
 dnfconf="/etc/dnf/dnf.conf"
 for line in "${lines[@]}"; do
 	echo $line >> $dnfconf 
