@@ -44,4 +44,4 @@ chsh -s $(which zsh)
 # Restart system (Best practice after first install)
 echo "Restarting system..."
 sleep 5
-restart
+reboot
