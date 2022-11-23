@@ -29,7 +29,7 @@ sudo dnf upgrade
 
 # Install my 'out of the box' progams
 echo "Installing out of the box apps..."
-sudo dnf install neovim ranger zsh neofetch rofi gh discord ani-cli
+sudo dnf install neovim ranger zsh neofetch rofi gh discord
 
 # Install starship
 echo "Installing starship..."
