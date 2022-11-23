@@ -39,6 +39,6 @@ curl -sS https://starship.rs/install.sh | sh
 # Restart system (Best practice after first install)
 echo "Restarting system..."
 echo "Remember to change shells!"
-echo "chsh -s $(which zsh)"
+echo "chsh -s \$(which zsh)"
 sleep 10
 reboot
