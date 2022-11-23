@@ -36,12 +36,9 @@ sudo dnf install neovim ranger zsh neofetch rofi gh discord
 echo "Installing starship..."
 curl -sS https://starship.rs/install.sh | sh
 
-# Change shell to zsh
-# Requires relog to take effect, handled by restart at the end
-echo "Changing shell to zsh..."
-chsh -s $(which zsh)
-
 # Restart system (Best practice after first install)
 echo "Restarting system..."
-sleep 5
+echo "Remember to change shells!"
+echo "chsh -s $(which zsh)"
+sleep 10
 reboot
