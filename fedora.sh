@@ -4,23 +4,24 @@
 # Not sure why you'd use it, but here you go
 
 # Set hostname
-read -p "Enter hostname: " hostname
-if [ $hostname ]
-then
-    sudo echo "$hostname" > /etc/hostname
-else
-    hostname="discworld"
-    sudo echo "$hostname" > /etc/hostname
+defaultHostname="discworld"
+read -p "Enter hostname (default is $defaultHostname): " hostname
+if ! [ $hostname ]; then
+    hostname=$defaultHostname
 fi
+sudo echo "$hostname" > /etc/hostname
 echo "Hostname set to $hostname"
 
-# Speed up dnf a touch
+# DNF changes
+echo "Fixing dnf..."
+# Speed up changes
 lines=('fastestmirror=true' 'defaultyes=true' 'max_parallel_downloads=10')
 dnfconf="/etc/dnf/dnf.conf"
 for line in "${lines[@]}"; do
 	echo $line >> $dnfconf 
 done
-echo "'Fixed' dnf ;)"
+# Enable RPM Fusion
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Upgrade system
 echo "Upgrading system..."
@@ -28,7 +29,7 @@ sudo dnf upgrade
 
 # Install my 'out of the box' progams
 echo "Installing out of the box apps..."
-sudo dnf install git neovim ranger zsh neofetch rofi vlc gh
+sudo dnf install neovim ranger zsh neofetch rofi gh discord ani-cli
 
 # Install starship
 echo "Installing starship..."
